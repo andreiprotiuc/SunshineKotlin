@@ -39,6 +39,11 @@ dependencies {
     kapt deps.dagger.android_support_compiler
     kapt deps.dagger.compiler
 
+    implementation deps.room.runtime
+    kapt deps.room.compiler
+
+    implementation deps.support.recyclerview
+
     testImplementation deps.junit
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.espresso.core
