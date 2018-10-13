@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.protiuc.sunshinekotlin.R
+import com.example.protiuc.sunshinekotlin.data.network.Status
 import com.example.protiuc.sunshinekotlin.di.Injectable
 
 import kotlinx.android.synthetic.main.activity_forecast.*
@@ -56,15 +57,14 @@ class MainFragment : Fragment(), Injectable, ForecastAdapter.ForecastAdapterOnIt
         viewModel = ViewModelProviders.of(this, factory).get(MainViewModel::class.java)
 
         viewModel.forecast.observe(this, Observer { forecast ->
-            forecastAdapter.swapForecast(forecast!!)
-
-            if (position == RecyclerView.NO_POSITION) position = 0
-            recyclerview_forecast.smoothScrollToPosition(position)
-
-            if (forecast.isNotEmpty()) {
-                showWeatherDataView()
-            } else {
+            if (forecast!!.status == Status.LOADING) {
                 showLoading()
+            } else {
+                forecastAdapter.swapForecast(forecast!!.data!!)
+
+                if (position == RecyclerView.NO_POSITION) position = 0
+                recyclerview_forecast.smoothScrollToPosition(position)
+                showWeatherDataView()
             }
         })
     }

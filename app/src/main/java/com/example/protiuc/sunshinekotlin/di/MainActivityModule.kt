@@ -5,7 +5,6 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 @Module
-@SuppressWarnings("unused")
 abstract class MainActivityModule {
     @ContributesAndroidInjector(modules = [FragmentsBuilderModule::class])
     abstract fun contributeMainActivity(): MainActivity
