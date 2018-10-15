@@ -7,7 +7,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MainViewModelFactory @Inject constructor(val repository: SunshineRepository) : ViewModelProvider.NewInstanceFactory() {
+class MainViewModelFactory @Inject constructor(private val repository: SunshineRepository) : ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         @Suppress("UNCHECKED_CAST")
         return MainViewModel(repository) as T

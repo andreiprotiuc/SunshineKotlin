@@ -8,7 +8,7 @@ import dagger.Binds
 import dagger.Module
 
 @Module
-@SuppressWarnings("unused")
+@Suppress("unused")
 abstract class ViewModelModule {
     @Binds
     abstract fun bindMainViewModel(userViewModel: MainViewModel): ViewModel

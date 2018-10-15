@@ -5,6 +5,7 @@ import android.app.Application
 import com.example.protiuc.sunshinekotlin.di.AppInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import timber.log.Timber
 import javax.inject.Inject
 
 public class SunshineApp: Application(), HasActivityInjector {
@@ -17,5 +18,7 @@ public class SunshineApp: Application(), HasActivityInjector {
         super.onCreate()
 
         AppInjector.init(this)
+
+        Timber.plant(Timber.DebugTree())
     }
 }

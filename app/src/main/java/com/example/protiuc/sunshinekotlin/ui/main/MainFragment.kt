@@ -60,7 +60,7 @@ class MainFragment : Fragment(), Injectable, ForecastAdapter.ForecastAdapterOnIt
             if (forecast!!.status == Status.LOADING) {
                 showLoading()
             } else {
-                forecastAdapter.swapForecast(forecast!!.data!!)
+                forecastAdapter.swapForecast(forecast.data!!)
 
                 if (position == RecyclerView.NO_POSITION) position = 0
                 recyclerview_forecast.smoothScrollToPosition(position)

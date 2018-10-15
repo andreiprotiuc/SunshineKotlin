@@ -1,7 +1,6 @@
 package com.example.protiuc.sunshinekotlin.utils
 
 import android.arch.lifecycle.LiveData
-import android.util.Log
 import com.example.protiuc.sunshinekotlin.data.network.ApiResponse
 import retrofit2.CallAdapter
 import retrofit2.Retrofit
@@ -26,7 +25,6 @@ class LiveDataCallAdapterFactory : CallAdapter.Factory() {
             throw IllegalArgumentException("resource must be parameterized")
         }
         val bodyType = CallAdapter.Factory.getParameterUpperBound(0, observableType)
-        Log.d("ceva", "LiveDataCallAdapterFactory")
         return LiveDataCallAdapter<Any>(bodyType)
     }
 }

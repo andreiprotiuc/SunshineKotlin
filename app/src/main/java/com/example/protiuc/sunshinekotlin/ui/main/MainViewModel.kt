@@ -8,4 +8,4 @@ import com.example.protiuc.sunshinekotlin.data.network.Resource
 import javax.inject.Inject
 
 
-class MainViewModel @Inject constructor( val repository: SunshineRepository, val forecast: LiveData<Resource<List<WeatherEntry>>> = repository.getCurrentWeatherForecasts()) : ViewModel()
+class MainViewModel @Inject constructor(private val repository: SunshineRepository, val forecast: LiveData<Resource<List<WeatherEntry>>> = repository.getCurrentWeatherForecasts()) : ViewModel()
